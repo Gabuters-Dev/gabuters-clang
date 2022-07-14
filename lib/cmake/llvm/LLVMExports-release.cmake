@@ -18,7 +18,7 @@ list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMDemangle "${_IMPORT_PREFIX}/lib/libLLVMD
 # Import target "LLVMSupport" for configuration "Release"
 set_property(TARGET LLVMSupport APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(LLVMSupport PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "C;CXX"
+  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "ASM;C;CXX"
   IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMSupport.a"
   )
 
@@ -63,6 +63,16 @@ set_target_properties(LLVMCore PROPERTIES
 
 list(APPEND _IMPORT_CHECK_TARGETS LLVMCore )
 list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMCore "${_IMPORT_PREFIX}/lib/libLLVMCore.a" )
+
+# Import target "LLVMFuzzerCLI" for configuration "Release"
+set_property(TARGET LLVMFuzzerCLI APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(LLVMFuzzerCLI PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMFuzzerCLI.a"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS LLVMFuzzerCLI )
+list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMFuzzerCLI "${_IMPORT_PREFIX}/lib/libLLVMFuzzerCLI.a" )
 
 # Import target "LLVMFuzzMutate" for configuration "Release"
 set_property(TARGET LLVMFuzzMutate APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -404,6 +414,16 @@ set_target_properties(LLVMMCA PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS LLVMMCA )
 list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMMCA "${_IMPORT_PREFIX}/lib/libLLVMMCA.a" )
 
+# Import target "LLVMObjCopy" for configuration "Release"
+set_property(TARGET LLVMObjCopy APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(LLVMObjCopy PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMObjCopy.a"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS LLVMObjCopy )
+list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMObjCopy "${_IMPORT_PREFIX}/lib/libLLVMObjCopy.a" )
+
 # Import target "LLVMObject" for configuration "Release"
 set_property(TARGET LLVMObject APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(LLVMObject PROPERTIES
@@ -443,6 +463,16 @@ set_target_properties(LLVMRemarks PROPERTIES
 
 list(APPEND _IMPORT_CHECK_TARGETS LLVMRemarks )
 list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMRemarks "${_IMPORT_PREFIX}/lib/libLLVMRemarks.a" )
+
+# Import target "LLVMDebuginfod" for configuration "Release"
+set_property(TARGET LLVMDebuginfod APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(LLVMDebuginfod PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMDebuginfod.a"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS LLVMDebuginfod )
+list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMDebuginfod "${_IMPORT_PREFIX}/lib/libLLVMDebuginfod.a" )
 
 # Import target "LLVMDebugInfoDWARF" for configuration "Release"
 set_property(TARGET LLVMDebugInfoDWARF APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -814,6 +844,16 @@ set_target_properties(LLVMXRay PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS LLVMXRay )
 list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMXRay "${_IMPORT_PREFIX}/lib/libLLVMXRay.a" )
 
+# Import target "LLVMWindowsDriver" for configuration "Release"
+set_property(TARGET LLVMWindowsDriver APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(LLVMWindowsDriver PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMWindowsDriver.a"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS LLVMWindowsDriver )
+list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMWindowsDriver "${_IMPORT_PREFIX}/lib/libLLVMWindowsDriver.a" )
+
 # Import target "LLVMWindowsManifest" for configuration "Release"
 set_property(TARGET LLVMWindowsManifest APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(LLVMWindowsManifest PROPERTIES
@@ -827,12 +867,12 @@ list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMWindowsManifest "${_IMPORT_PREFIX}/lib/l
 # Import target "LTO" for configuration "Release"
 set_property(TARGET LTO APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(LTO PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLTO.so.14git"
-  IMPORTED_SONAME_RELEASE "libLTO.so.14git"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLTO.so.15git"
+  IMPORTED_SONAME_RELEASE "libLTO.so.15git"
   )
 
 list(APPEND _IMPORT_CHECK_TARGETS LTO )
-list(APPEND _IMPORT_CHECK_FILES_FOR_LTO "${_IMPORT_PREFIX}/lib/libLTO.so.14git" )
+list(APPEND _IMPORT_CHECK_FILES_FOR_LTO "${_IMPORT_PREFIX}/lib/libLTO.so.15git" )
 
 # Import target "LLVMgold" for configuration "Release"
 set_property(TARGET LLVMgold APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -1016,6 +1056,24 @@ set_target_properties(llvm-cxxmap PROPERTIES
 
 list(APPEND _IMPORT_CHECK_TARGETS llvm-cxxmap )
 list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-cxxmap "${_IMPORT_PREFIX}/bin/llvm-cxxmap" )
+
+# Import target "llvm-debuginfod" for configuration "Release"
+set_property(TARGET llvm-debuginfod APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-debuginfod PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-debuginfod"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-debuginfod )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-debuginfod "${_IMPORT_PREFIX}/bin/llvm-debuginfod" )
+
+# Import target "llvm-debuginfod-find" for configuration "Release"
+set_property(TARGET llvm-debuginfod-find APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-debuginfod-find PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-debuginfod-find"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-debuginfod-find )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-debuginfod-find "${_IMPORT_PREFIX}/bin/llvm-debuginfod-find" )
 
 # Import target "llvm-diff" for configuration "Release"
 set_property(TARGET llvm-diff APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -1290,6 +1348,15 @@ set_target_properties(llvm-reduce PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS llvm-reduce )
 list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-reduce "${_IMPORT_PREFIX}/bin/llvm-reduce" )
 
+# Import target "llvm-remark-size-diff" for configuration "Release"
+set_property(TARGET llvm-remark-size-diff APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-remark-size-diff PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-remark-size-diff"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-remark-size-diff )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-remark-size-diff "${_IMPORT_PREFIX}/bin/llvm-remark-size-diff" )
+
 # Import target "llvm-rtdyld" for configuration "Release"
 set_property(TARGET llvm-rtdyld APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(llvm-rtdyld PROPERTIES
@@ -1362,6 +1429,15 @@ set_target_properties(llvm-tapi-diff PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS llvm-tapi-diff )
 list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-tapi-diff "${_IMPORT_PREFIX}/bin/llvm-tapi-diff" )
 
+# Import target "llvm-tli-checker" for configuration "Release"
+set_property(TARGET llvm-tli-checker APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-tli-checker PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-tli-checker"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-tli-checker )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-tli-checker "${_IMPORT_PREFIX}/bin/llvm-tli-checker" )
+
 # Import target "llvm-undname" for configuration "Release"
 set_property(TARGET llvm-undname APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(llvm-undname PROPERTIES
@@ -1392,12 +1468,12 @@ list(APPEND _IMPORT_CHECK_FILES_FOR_opt "${_IMPORT_PREFIX}/bin/opt" )
 # Import target "Remarks" for configuration "Release"
 set_property(TARGET Remarks APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(Remarks PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libRemarks.so.14git"
-  IMPORTED_SONAME_RELEASE "libRemarks.so.14git"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libRemarks.so.15git"
+  IMPORTED_SONAME_RELEASE "libRemarks.so.15git"
   )
 
 list(APPEND _IMPORT_CHECK_TARGETS Remarks )
-list(APPEND _IMPORT_CHECK_FILES_FOR_Remarks "${_IMPORT_PREFIX}/lib/libRemarks.so.14git" )
+list(APPEND _IMPORT_CHECK_FILES_FOR_Remarks "${_IMPORT_PREFIX}/lib/libRemarks.so.15git" )
 
 # Import target "sancov" for configuration "Release"
 set_property(TARGET sancov APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)

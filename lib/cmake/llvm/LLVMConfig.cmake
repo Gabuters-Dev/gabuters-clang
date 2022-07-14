@@ -1,18 +1,20 @@
 # This file provides information and services to the final user.
 
-
 # Compute the installation prefix from this LLVMConfig.cmake file location.
 get_filename_component(LLVM_INSTALL_PREFIX "${CMAKE_CURRENT_LIST_FILE}" PATH)
 get_filename_component(LLVM_INSTALL_PREFIX "${LLVM_INSTALL_PREFIX}" PATH)
 get_filename_component(LLVM_INSTALL_PREFIX "${LLVM_INSTALL_PREFIX}" PATH)
 get_filename_component(LLVM_INSTALL_PREFIX "${LLVM_INSTALL_PREFIX}" PATH)
 
-set(LLVM_VERSION_MAJOR 14)
+# For finding self-installed Find*.cmake packages.
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}")
+
+set(LLVM_VERSION_MAJOR 15)
 set(LLVM_VERSION_MINOR 0)
 set(LLVM_VERSION_PATCH 0)
 set(LLVM_VERSION_SUFFIX git)
-set(LLVM_PACKAGE_VERSION 14.0.0git)
-set(LLVM_PACKAGE_BUGREPORT https://bugs.llvm.org/)
+set(LLVM_PACKAGE_VERSION 15.0.0git)
+set(LLVM_PACKAGE_BUGREPORT https://github.com/llvm/llvm-project/issues/)
 
 set(LLVM_BUILD_TYPE Release)
 
@@ -25,13 +27,13 @@ set(LLVM_USE_SPLIT_DWARF OFF)
 
 set(LLVM_COMMON_DEPENDS )
 
-set(LLVM_AVAILABLE_LIBS LLVMDemangle;LLVMSupport;LLVMTableGen;LLVMTableGenGlobalISel;LLVMCore;LLVMFuzzMutate;LLVMFileCheck;LLVMInterfaceStub;LLVMIRReader;LLVMCodeGen;LLVMSelectionDAG;LLVMAsmPrinter;LLVMMIRParser;LLVMGlobalISel;LLVMBinaryFormat;LLVMBitReader;LLVMBitWriter;LLVMBitstreamReader;LLVMDWARFLinker;LLVMExtensions;LLVMFrontendOpenACC;LLVMFrontendOpenMP;LLVMTransformUtils;LLVMInstrumentation;LLVMAggressiveInstCombine;LLVMInstCombine;LLVMScalarOpts;LLVMipo;LLVMVectorize;LLVMObjCARCOpts;LLVMCoroutines;LLVMCFGuard;LLVMLinker;LLVMAnalysis;LLVMLTO;LLVMMC;LLVMMCParser;LLVMMCDisassembler;LLVMMCA;LLVMObject;LLVMObjectYAML;LLVMOption;LLVMRemarks;LLVMDebugInfoDWARF;LLVMDebugInfoGSYM;LLVMDebugInfoMSF;LLVMDebugInfoCodeView;LLVMDebugInfoPDB;LLVMSymbolize;LLVMDWP;LLVMExecutionEngine;LLVMInterpreter;LLVMJITLink;LLVMMCJIT;LLVMOrcJIT;LLVMOrcShared;LLVMOrcTargetProcess;LLVMRuntimeDyld;LLVMTarget;LLVMARMCodeGen;LLVMARMAsmParser;LLVMARMDisassembler;LLVMARMDesc;LLVMARMInfo;LLVMARMUtils;LLVMAArch64CodeGen;LLVMAArch64AsmParser;LLVMAArch64Disassembler;LLVMAArch64Desc;LLVMAArch64Info;LLVMAArch64Utils;LLVMAsmParser;LLVMLineEditor;LLVMProfileData;LLVMCoverage;LLVMPasses;LLVMTextAPI;LLVMDlltoolDriver;LLVMLibDriver;LLVMXRay;LLVMWindowsManifest;LTO;LLVMCFIVerify;LLVMDiff;LLVMExegesisAArch64;LLVMExegesis;Remarks;Polly)
+set(LLVM_AVAILABLE_LIBS LLVMDemangle;LLVMSupport;LLVMTableGen;LLVMTableGenGlobalISel;LLVMCore;LLVMFuzzerCLI;LLVMFuzzMutate;LLVMFileCheck;LLVMInterfaceStub;LLVMIRReader;LLVMCodeGen;LLVMSelectionDAG;LLVMAsmPrinter;LLVMMIRParser;LLVMGlobalISel;LLVMBinaryFormat;LLVMBitReader;LLVMBitWriter;LLVMBitstreamReader;LLVMDWARFLinker;LLVMExtensions;LLVMFrontendOpenACC;LLVMFrontendOpenMP;LLVMTransformUtils;LLVMInstrumentation;LLVMAggressiveInstCombine;LLVMInstCombine;LLVMScalarOpts;LLVMipo;LLVMVectorize;LLVMObjCARCOpts;LLVMCoroutines;LLVMCFGuard;LLVMLinker;LLVMAnalysis;LLVMLTO;LLVMMC;LLVMMCParser;LLVMMCDisassembler;LLVMMCA;LLVMObjCopy;LLVMObject;LLVMObjectYAML;LLVMOption;LLVMRemarks;LLVMDebuginfod;LLVMDebugInfoDWARF;LLVMDebugInfoGSYM;LLVMDebugInfoMSF;LLVMDebugInfoCodeView;LLVMDebugInfoPDB;LLVMSymbolize;LLVMDWP;LLVMExecutionEngine;LLVMInterpreter;LLVMJITLink;LLVMMCJIT;LLVMOrcJIT;LLVMOrcShared;LLVMOrcTargetProcess;LLVMRuntimeDyld;LLVMTarget;LLVMARMCodeGen;LLVMARMAsmParser;LLVMARMDisassembler;LLVMARMDesc;LLVMARMInfo;LLVMARMUtils;LLVMAArch64CodeGen;LLVMAArch64AsmParser;LLVMAArch64Disassembler;LLVMAArch64Desc;LLVMAArch64Info;LLVMAArch64Utils;LLVMAsmParser;LLVMLineEditor;LLVMProfileData;LLVMCoverage;LLVMPasses;LLVMTextAPI;LLVMDlltoolDriver;LLVMLibDriver;LLVMXRay;LLVMWindowsDriver;LLVMWindowsManifest;LTO;LLVMCFIVerify;LLVMDiff;LLVMExegesisAArch64;LLVMExegesis;Remarks;Polly)
 
 
 
 set(LLVM_DYLIB_COMPONENTS all)
 
-set(LLVM_ALL_TARGETS AArch64;AMDGPU;ARM;AVR;BPF;Hexagon;Lanai;Mips;MSP430;NVPTX;PowerPC;RISCV;Sparc;SystemZ;WebAssembly;X86;XCore)
+set(LLVM_ALL_TARGETS AArch64;AMDGPU;ARM;AVR;BPF;Hexagon;Lanai;Mips;MSP430;NVPTX;PowerPC;RISCV;Sparc;SystemZ;VE;WebAssembly;X86;XCore)
 
 set(LLVM_TARGETS_TO_BUILD ARM;AArch64)
 
@@ -43,6 +45,7 @@ set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMSupport )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMTableGen )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMTableGenGlobalISel )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMCore )
+set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMFuzzerCLI )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMFuzzMutate )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMFileCheck )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMInterfaceStub )
@@ -77,10 +80,12 @@ set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMMC )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMMCParser )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMMCDisassembler )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMMCA )
+set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMObjCopy )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMObject )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMObjectYAML )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMOption )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMRemarks )
+set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMDebuginfod )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMDebugInfoDWARF )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMDebugInfoGSYM )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMDebugInfoMSF )
@@ -118,6 +123,7 @@ set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMTextAPI )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMDlltoolDriver )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMLibDriver )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMXRay )
+set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMWindowsDriver )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMWindowsManifest )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LTO )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMCFIVerify )
@@ -127,7 +133,7 @@ set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMExegesis )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_Remarks )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_Polly )
 
-set(TARGET_TRIPLE "x86_64-unknown-linux-gnu")
+set(LLVM_TARGET_TRIPLE "x86_64-unknown-linux-gnu")
 
 set(LLVM_HOST_TRIPLE "x86_64-unknown-linux-gnu")
 
@@ -141,9 +147,17 @@ set(LLVM_ENABLE_ASSERTIONS OFF)
 
 set(LLVM_ENABLE_EH OFF)
 
+set(LLVM_ENABLE_FFI OFF)
+if(LLVM_ENABLE_FFI)
+  find_package(FFI)
+endif()
+
 set(LLVM_ENABLE_RTTI OFF)
 
-set(LLVM_ENABLE_TERMINFO 0)
+set(LLVM_ENABLE_TERMINFO OFF)
+if(LLVM_ENABLE_TERMINFO)
+  find_package(Terminfo)
+endif()
 
 set(LLVM_ENABLE_THREADS ON)
 
@@ -151,6 +165,7 @@ set(LLVM_ENABLE_UNWIND_TABLES ON)
 
 set(LLVM_ENABLE_ZLIB 1)
 if(LLVM_ENABLE_ZLIB)
+  set(ZLIB_ROOT )
   find_package(ZLIB)
 endif()
 
@@ -168,8 +183,6 @@ set(LLVM_NATIVE_ARCH X86)
 set(LLVM_ENABLE_PIC ON)
 
 set(LLVM_BUILD_32_BITS OFF)
-
-set(LLVM_ENABLE_NEW_PASS_MANAGER TRUE)
 
 if (NOT "-lpthread" STREQUAL "")
   set(LLVM_PTHREAD_LIB "-lpthread")
@@ -192,20 +205,24 @@ set(LLVM_APPEND_VC_REV "ON")
 # values for build tree.  LLVM_INCLUDE_DIRS contains both source
 # and generated include directories while the following variables have
 # them split.
-set(LLVM_INCLUDE_DIR "${LLVM_INSTALL_PREFIX}/include")
+
+# These are the "main" dirs
 set(LLVM_MAIN_INCLUDE_DIR "${LLVM_INSTALL_PREFIX}/include")
 set(LLVM_LIBRARY_DIR "${LLVM_INSTALL_PREFIX}/lib${LLVM_LIBDIR_SUFFIX}")
 
+# This is a secondary one for generated files
+set(LLVM_INCLUDE_DIR "${LLVM_INSTALL_PREFIX}/include")
+
 set(LLVM_DEFINITIONS "-D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS")
-set(LLVM_CMAKE_DIR "${LLVM_INSTALL_PREFIX}/lib/cmake/llvm")
 set(LLVM_BINARY_DIR "${LLVM_INSTALL_PREFIX}")
+set(LLVM_CMAKE_DIR "${LLVM_INSTALL_PREFIX}/lib/cmake/llvm")
 set(LLVM_TOOLS_BINARY_DIR "${LLVM_INSTALL_PREFIX}/bin")
 set(LLVM_TOOLS_INSTALL_DIR "bin")
 set(LLVM_HAVE_OPT_VIEWER_MODULES 0)
 set(LLVM_CONFIGURATION_TYPES )
 set(LLVM_ENABLE_SHARED_LIBS OFF)
 
-set(LLVM_DEFAULT_EXTERNAL_LIT "/drone/src/llvm/build/llvm/stage2/./bin/llvm-lit")
+set(LLVM_DEFAULT_EXTERNAL_LIT "/home/heinzdf/llvm/build/llvm/stage2/./bin/llvm-lit")
 set(LLVM_LIT_ARGS "-sv")
 
 set(LLVM_HAVE_LIBXAR "")
